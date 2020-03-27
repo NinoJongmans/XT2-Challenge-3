@@ -1,0 +1,46 @@
+* {
+    margin: 0px;
+}
+body {
+    background: rgba(2,64,118,1);
+    font-family: arial;
+}
+.container {
+    display: grid;
+    grid-template-areas: 
+        "dagdeel dagdeel dagdeel"
+        "uren minuten seconden"
+        "datum datum datum"
+        "gmt gmt gmt";
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    margin: 5%;
+    margin-top: 20%;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+}
+.dagdeel{
+    grid-area: dagdeel;
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+
+
+@media only screen and (max-width: 899px) and (min-width: 550px) {
+    
+}
+
+
+    
+    
+@media only screen and (max-width: 1313px) and (min-width: 900px) {
+    
+}    
+
+
+
+@media only screen and (min-width: 1314px) {
+    
+}
