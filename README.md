@@ -10,5 +10,5 @@ Het weeradvies wordt gekozen aan de hand van actueele data uit de weer API. Er w
 
 Het weerbericht bestaat uit een voorspelling van 7 dagen. Waarbij temperatuur, percentage wolken en datum wordt weergegeven. Om een beetje een overzicht van de omstandigheden te geven worden er ook icoontjes geplaatst.
 
-
+### Fout bij het laden
 Soms komt het voor dat de site bij de eerste keer laden niet meteen de maps weergeeft. De oplossing hiervoor is om de site te herladen of om op de knop 'verander locatie' te klikken.
