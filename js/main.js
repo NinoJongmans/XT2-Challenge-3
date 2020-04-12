@@ -22,7 +22,6 @@ function getLat() {
     
     btnreload.style.visibility = "hidden";
     
-    
     if (clicks == 0) {
         latitude = 52.067514882683064;
         plaatsnaam.innerHTML = 'Locatie 1:';
@@ -60,7 +59,6 @@ function getLat() {
         plaats.innerHTML = '';
         btnreload.style.visibility = "visible";
     }
-    
     return latitude;
 }
 
@@ -85,7 +83,6 @@ function getLng() {
     else if (clicks == 5) {
         
     }
-    
     
     return longitude;
 }
@@ -112,7 +109,7 @@ function initMap() {
 			lat: getLat(), 
 			lng: getLng()
 		},
-		zoom: 17,
+		zoom: 15,
 		clickableIcons: false,
 		styles: myStyles,
         zoomControl: true,
@@ -125,7 +122,7 @@ function initMap() {
 			lat: getLat(), 
 			lng: getLng()
 		},
-		zoom: 17,
+		zoom: 14,
 		clickableIcons: false,
 		styles: myStyles,
         draggable: false,
@@ -153,6 +150,8 @@ function getAPIdata() {
     var lat = getLat();
     var lon = getLng();
 	var apiKey ='b1f538a469a6b6f9fd103cda1db6e9ef';
+    
+    
 
 	// construct request
 	var request = url + lat + '&lon=' + lon + '&appid=' + apiKey;
@@ -172,6 +171,10 @@ function getAPIdata() {
 		// render weatherCondition
 		onAPISucces(response);
 	})
+    
+    
+
+    
 	
 	// catch error
 	.catch(function (error) {
@@ -189,7 +192,45 @@ function onAPISucces(response) {
 
 	var weatherList = response.daily;
 	var weatherBox = document.getElementById('weerbericht');
-
+    var temp = Math.floor(weatherList[1].temp.day - 273.15);
+    var clouds = weatherList[1].clouds;
+    var weeradvies = document.getElementById('weeradvies');
+    var weeradvies2 = document.getElementById('weeradvies2');
+    var conclusie = document.getElementById('conclusie');
+    
+//    console.log(clouds);
+    
+    if (temp > 4) {
+        weeradvies.innerHTML = 'Het is een goede temperatuur om te landen.'; 
+    }
+    else {
+        weeradvies.innerHTML = 'Het is te koud om hier te landen.'
+    }
+    
+    if (clouds > 50){
+        weeradvies2.innerHTML = 'Er zijn ' + clouds + '% ' + 'wolken in de lucht, waardoor de landingsplek niet optimaal te zien is.';
+    }
+    else {
+        weeradvies2.innerHTML = 'Er zijn ' + clouds + '% ' + 'wolken in de lucht, waardoor de landingsplek goed te zien is!'; 
+    }
+    
+    if (temp > 4) {
+        if (clouds < 50){
+            conclusie.innerHTML = 'Dit is een goede landingsplek!';
+        }
+        else {
+            conclusie.innerHTML = 'Dit is een goede landingsplek!';
+        }
+    }
+    else {
+        if (clouds < 50) {
+            conclusie.innerHTML = 'Dit is een goede landingsplek!';
+        }
+        else {
+            conclusie.innerHTML = 'Dit is geen geschikte landingsplek.';
+        }
+    }
+        
 	for(var i=0; i< weatherList.length; i++){
         
         
@@ -209,25 +250,15 @@ function onAPISucces(response) {
 		weatherBox.innerHTML += forecastMessage;
 	}
 }
-
-/**
- * Error
- */
 function updateUIError() {
 	var weatherBox = document.getElementById('weerbericht');
 	weatherBox.className = 'hidden'; 
 }
-
-/**
- * Format date
- */
 function formDate(date) {
 	var day = date.getDate();
 	var month = date.getMonth() + 1;
 	return day +'/'+ month;
 }
-
-// init data stream
 
 
 
