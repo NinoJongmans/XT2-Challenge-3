@@ -2,6 +2,8 @@
 var myMap, preview;
 var clicks = 0; 
 
+
+
 function getClicks() {
     clicks += 1;
     console.log(clicks);
@@ -9,32 +11,54 @@ function getClicks() {
 }
 
 
+
+
 function getLat() {
     var latitude = 0;
+    var plaatsnaam = document.getElementById('plaatsnaam');
+    var onderregel = document.getElementById('onderregel');
+    var btnreload = document.getElementById('btn-reload');
+    var plaats = document.getElementById('plaats')
+    
+    btnreload.style.visibility = "hidden";
+    
     
     if (clicks == 0) {
         latitude = 52.067514882683064;
-        document.getElementById('plaatsnaam').innerHTML = 'test 0';
+        plaatsnaam.innerHTML = 'Locatie 1:';
+        onderregel.innerHTML = '52.067514882683064 ; 4.3238686164587';
+        plaats.innerHTML = 'Den Haag, Nederland';
     }
     else if (clicks == 1) {
         latitude = 52.077165;
-        document.getElementById('plaatsnaam').innerHTML = 'test 1';
+        plaatsnaam.innerHTML = 'Locatie 2:';
+        onderregel.innerHTML = '52.077165 ; 5.956826';
+        plaats.innerHTML = 'Groenendaal, Nederland';
     }
     else if (clicks == 2) {
         latitude = 64.422531;
-        document.getElementById('plaatsnaam').innerHTML = 'test 2';
+        plaatsnaam.innerHTML = 'Locatie 3:';
+        onderregel.innerHTML = '64.422531 ; -50.218348';
+        plaats.innerHTML = 'Kagssinguit, Groenland';
     }
     else if (clicks == 3) {
         latitude = 64.422531;
-        document.getElementById('plaatsnaam').innerHTML = 'test 2';
+        plaatsnaam.innerHTML = 'Locatie 4:';
+        onderregel.innerHTML = '52.067514882683064 ; 4.3238686164587';
+        plaats.innerHTML = 'Groenendaal, Nederland';
     }
     else if (clicks == 4) {
         latitude = 64.422531;
-        document.getElementById('plaatsnaam').innerHTML = 'test 2';
+        plaatsnaam.innerHTML = 'Locatie 5:';
+        onderregel.innerHTML = '52.067514882683064 ; 4.3238686164587';
+        plaats.innerHTML = 'Groenendaal, Nederland';
     }
-    else if (clicks == 5) {
+    else if (clicks => 5) {
         latitude = 0;
-        document.getElementById('plaatsnaam').innerHTML = 'test 2';
+        plaatsnaam.innerHTML = 'Dit waren alle opties om te landen.';
+        onderregel.innerHTML = 'Klik op de knop om te herstarten.';
+        plaats.innerHTML = '';
+        btnreload.style.visibility = "visible";
     }
     
     return latitude;
@@ -42,12 +66,7 @@ function getLat() {
 
 function getLng() {
     var longitude = 0;
-//    var clicks = 0;
-//    
-//    if (document.getElementById('btn-zoek').onclick) {
-//        clicks += 1;
-//    }
-    
+
     if (clicks == 0){
         longitude = 4.3238686164587;
     }
@@ -161,6 +180,10 @@ function getAPIdata() {
 	});
 }
 
+function clearData() {
+   document.getElementById('weerbericht').innerHTML = '';
+'';
+}
 
 function onAPISucces(response) {
 
@@ -176,9 +199,7 @@ function onAPISucces(response) {
 		var temp = Math.floor(weatherList[i].temp.day - 273.15);
 		var iconUrl = 'http://openweathermap.org/img/w/'+weatherList[i].weather[0].icon+'.png';
 
-//        if (document.getElementById('btn-zoek').onclick) {
-//            continue;
-//        }
+       
 		forecastMessage =  '<div class="forecastMoment">';
 		forecastMessage +=   '<div class="date"> '+date+' </div>';
 		forecastMessage +=	 '<div class="temp"> '+temp+'&#176;C </div>';
@@ -207,7 +228,6 @@ function formDate(date) {
 }
 
 // init data stream
-
 
 
 

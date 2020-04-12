@@ -22,14 +22,18 @@
           <h1>Plekken om te landen</h1>
            <section class="container">
                <section class="plaatsnaam">
-                   <div id="plaatsnaam">Den Haag</div>
+                   <div id="plaatsnaam"></div>
+                   <div id="onderregel"></div>
+                   <div id="plaats"></div>
+                   <div id="herlaad pagina">
+                       <a href="" id="btn-reload" onclick="window.location.reload();">Herlaad pagina</a>
+                   </div>
                </section>
 
                <section class="maps">
                    <div id="maps"></div>
                    <section class="contbtn">
-                       <a id="btn-zoek" class="btn-zoek" onclick="getClicks();initMap();getAPIdata();onAPISucces()">Verander locatie</a>
-                       <a class="btn-route">Calculeer route</a>
+                       <a id="btn-zoek" class="btn-zoek" onclick="getClicks();initMap();clearData();getAPIdata();onAPISucces()">Verander locatie</a>
                    </section>
                </section>
 
@@ -37,6 +41,10 @@
                     <div id="preview"></div>
                </section>
 
+               <section class="weeradvies">
+                   <div id="weeradvies"></div>
+               </section>      
+                  
                <section class="weerbericht">
                    <div id="weerbericht"></div>
                </section>

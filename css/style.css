@@ -41,17 +41,25 @@ nav > a{
     height: 50px;
 }
 
+main > h1 {
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: 24px;
+}
+
 .container {
     display: grid;
     grid-template-areas: 
         "plaatsnaam"
         "maps"
         "preview"
+        "weeradvies"
         "weerbericht";
     margin: 5%;
+    margin-top: 2%;
     grid-row-gap: 15px;
 }
-.plaatsnaam, .maps, .preview, .weerbericht {
+.plaatsnaam, .maps, .preview, .weeradvies, .weerbericht {
     background-color: white;
     padding: 5%;
 }
@@ -62,8 +70,12 @@ nav > a{
 }
 
 #plaatsnaam {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
+}
+
+#onderregel, #plaats {
+    font-size: 15px;
 }
 
 .maps{
@@ -92,15 +104,7 @@ nav > a{
     color: white;
     font-weight: bold;
 }
-.btn-route{
-    grid-area: btn-route;
-    padding: 7px;
-    background-color: #383838;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-}
-.btn-zoek:hover, .btn-route:hover {
+.btn-zoek:hover {
     font-weight: normal;
 }
 
@@ -108,6 +112,10 @@ nav > a{
     grid-area: preview;
     background-color: white;
     padding: 0%;
+}
+
+.weeradvies {
+    back
 }
 
 .weerbericht{
