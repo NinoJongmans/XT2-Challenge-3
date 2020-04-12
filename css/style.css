@@ -7,7 +7,6 @@ body {
 	font-family: helvetica neue;
 	font-size: 10px;
 }
-
 nav{
     background-color: #383838;
     min-height: 70px;
@@ -16,7 +15,6 @@ nav{
 nav > p {
     display: none;
 }
-
 .profilepicmenu {
     border-radius: 50%;
     float: right;
@@ -40,13 +38,11 @@ nav > a{
     padding-bottom: 10px;
     height: 50px;
 }
-
 main > h1 {
     margin-left: 5%;
     margin-top: 5%;
     font-size: 24px;
 }
-
 .container {
     display: grid;
     grid-template-areas: 
@@ -68,66 +64,68 @@ main > h1 {
     background-color: transparent;
     padding-left: 0%;
 }
-
 #plaatsnaam {
     font-size: 18px;
     font-weight: bold;
 }
-
 #onderregel, #plaats {
     font-size: 15px;
 }
-
 .maps{
     grid-area: maps;
     background-color: white;
     padding: 0%;
 }
-
+#herlaadpagina{
+    margin-top: 20px;
+}
+#btn-reload {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    background-color: #383838;
+    color: white;
+}
+#btn-reload:hover {
+    font-weight: normal;
+}
 .contbtn{
    padding: 5%;
    display: grid;
    grid-template-areas: 
-       "btn-zoek"
-       "btn-route";
-    grid-row-gap: 15px;
+       "btn-zoek";
     width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
-
 .btn-zoek{
     grid-area: btn-zoek;
     padding: 7px;
+    padding-bottom: 15px;
+    padding-top: 15px;
     background-color: #383838;
     text-align: center;
     color: white;
     font-weight: bold;
+    font-size: 15px;
 }
 .btn-zoek:hover {
     font-weight: normal;
 }
-
 .preview{
     grid-area: preview;
     background-color: white;
     padding: 0%;
 }
-
-.weeradvies {
-    
-}
-
 .weerbericht{
     grid-area: weerbericht;
     background-color: white;
 }
-
 #maps {
 	width: 100%;
 	height: 250px;
 }
-
 #maps > img {
     display: none;
 }
@@ -135,40 +133,52 @@ main > h1 {
     width: 100%;
     height: 250px;
 }
-
 .gmnoprint a, .gmnoprint span, .gm-style-cc {
     display:none;
 }
-
-
-
-
-
 #weerbericht {
 	width: 100%;
 	overflow: hidden;
 }
-
 #weerbericht > .forecastMoment {
 	float: left;
 	width: 50%;
 	padding-top: 4px;
-	padding-bottom: 4px;
+	padding-bottom: 20px;
 	text-align: center;
-	background-color: #D7DBDF;
+    background-color: white;
+    box-shadow: 3px 3px 20px -5px rgba(138,138,138,1);
 	color: #444;
-	font-size: 0.8em;
+	font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
+.icon > img {
+    width: 30%;
+}
 .temp {
 	font-weight: bold;
-	color: #0af;
+	color: #008000;
 	font-size: 1.3em;
 }
-
 .hidden {
 	display: none;
 }
+#conclusie {
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 30px;
+}
+.weeradvies > h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+#weeradvies, #weeradvies2{
+    font-size: 13px;
+}
+
+
 
 
 @media only screen and (max-width: 899px) and (min-width: 550px) {
@@ -180,14 +190,14 @@ main > h1 {
         "weeradvies weeradvies"
         "weerbericht weerbericht";
     grid-template-columns: 1fr 1fr;
-    grid-row-gap: 25px;
-}
-    
+    grid-row-gap: 3%;
+    grid-column-gap: 3%;
+    }
     #preview {
         height: 100%;
     }
     .weeradvies {
-        width: 190%;
+        width: 196%;
     }
     .plaatsnaam{
         padding-bottom: 10px;
@@ -196,18 +206,80 @@ main > h1 {
     nav > a{
         margin-left: 50%;
     }
-    
+    #weerbericht > .forecastMoment {
+	float: left;
+	width: 25%;
+	padding-top: 4px;
+	padding-bottom: 20px;
+	text-align: center;
+    background-color: white;
+	color: #444;
+	font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    } 
 }
 
 
     
     
 @media only screen and (max-width: 1313px) and (min-width: 900px) {
-    
+    .container {
+        display: grid;
+        grid-template-areas: 
+            "plaatsnaam plaatsnaam"
+            "maps preview"
+            "weeradvies weerbericht";
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 25px;
+        grid-column-gap: 25px;
+    }
+    #preview {
+        height: 100%;
+    }
+    .plaatsnaam{
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    nav > a{
+        margin-left: 61%;
+    } 
 }    
 
 
 
 @media only screen and (min-width: 1314px) {
-    
+    .container {
+        display: grid;
+        grid-template-areas: 
+            "plaatsnaam plaatsnaam plaatsnaam"
+            "maps maps preview"
+            "weeradvies weerbericht weerbericht";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-row-gap: 25px;
+        grid-column-gap: 25px;
+    }
+    #preview {
+        height: 100%;
+    }
+    .plaatsnaam{
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    nav > a{
+        margin-left: 66%;
+    }
+    #weerbericht > .forecastMoment {
+	float: left;
+	width: 25%;
+	padding-top: 4px;
+	padding-bottom: 20px;
+	text-align: center;
+    background-color: white;
+	color: #444;
+	font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 3px 3px 20px -5px rgba(138,138,138,1);
+    }  
 }

@@ -7,9 +7,8 @@
         <link type="text/css" rel="stylesheet" href="css/style.css" />
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR2u11BvM5pUECq41xZhFYkUWpvEa3Z7E&callback=initMap"></script>
         <script src="js/main.js" defer></script>
-        
     </head>
-    <body onload="getAPIdata();">
+    <body>
        <header>
            <nav>
                 <img class="logo" src="images/logo.png" alt="logo" />
@@ -25,36 +24,29 @@
                    <div id="plaatsnaam"></div>
                    <div id="onderregel"></div>
                    <div id="plaats"></div>
-                   <div id="herlaad pagina">
+                   <div id="herlaadpagina">
                        <a href="" id="btn-reload" onclick="window.location.reload();">Herlaad pagina</a>
                    </div>
                </section>
-
                <section class="maps">
                    <div id="maps"></div>
                    <section class="contbtn">
                        <a id="btn-zoek" class="btn-zoek" onclick="getClicks();initMap();clearData();getAPIdata();onAPISucces()">Verander locatie</a>
                    </section>
                </section>
-
                <section class="preview">
                     <div id="preview"></div>
                </section>
-
                <section class="weeradvies">
                    <h2>Weeradvies:</h2>
                    <div id="weeradvies"></div>
                    <div id="weeradvies2"></div>
                    <div id="conclusie"></div>
-               </section>      
-                  
+               </section>     
                <section class="weerbericht">
                    <div id="weerbericht"></div>
                </section>
-               
-               
            </section>
        </main>
-    
     </body>
 </html>
