@@ -2,30 +2,165 @@
     margin: 0px;
 }
 body {
-    background: rgba(2,64,118,1);
-    font-family: arial;
+    background-color: #DDDDDD;
+	color: #707070;
+	font-family: helvetica neue;
+	font-size: 10px;
 }
+
+nav{
+    background-color: #383838;
+    min-height: 70px;
+    box-shadow: 0px 3px 6px;
+}
+nav > p {
+    display: none;
+}
+
+.profilepicmenu {
+    border-radius: 50%;
+    float: right;
+    width: 50px;
+    margin-right: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.pijl {
+    width: 25px;
+}
+nav > a{
+    position: absolute;
+    margin-top: 25px;
+    margin-left: 40%;
+    color: white;
+}
+.logo {
+    margin-left: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 50px;
+}
+
 .container {
     display: grid;
     grid-template-areas: 
-        "dagdeel dagdeel dagdeel"
-        "uren minuten seconden"
-        "datum datum datum"
-        "gmt gmt gmt";
-    grid-row-gap: 10px;
-    grid-column-gap: 10px;
+        "plaatsnaam"
+        "maps"
+        "preview"
+        "weerbericht";
     margin: 5%;
-    margin-top: 20%;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
+    grid-row-gap: 15px;
 }
-.dagdeel{
-    grid-area: dagdeel;
+.plaatsnaam, .maps, .preview, .weerbericht {
+    background-color: white;
+    padding: 5%;
+}
+.plaatsnaam{
+    grid-area: plaatsnaam;
+    background-color: transparent;
+    padding-left: 0%;
+}
+
+#plaatsnaam {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.maps{
+    grid-area: maps;
+    background-color: white;
+    padding: 0%;
+}
+
+.contbtn{
+   padding: 5%;
+   display: grid;
+   grid-template-areas: 
+       "btn-zoek"
+       "btn-route";
+    grid-row-gap: 15px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-zoek{
+    grid-area: btn-zoek;
+    padding: 7px;
+    background-color: #383838;
+    text-align: center;
     color: white;
-    margin-bottom: 20px;
+    font-weight: bold;
+}
+.btn-route{
+    grid-area: btn-route;
+    padding: 7px;
+    background-color: #383838;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.btn-zoek:hover, .btn-route:hover {
+    font-weight: normal;
+}
+
+.preview{
+    grid-area: preview;
+    background-color: white;
+    padding: 0%;
+}
+
+.weerbericht{
+    grid-area: weerbericht;
+    background-color: white;
+}
+
+#maps {
+	width: 100%;
+	height: 250px;
+}
+
+#maps > img {
+    display: none;
+}
+#preview{
+    width: 100%;
+    height: 250px;
+}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
 }
 
 
+
+
+
+#weerbericht {
+	width: 100%;
+	overflow: hidden;
+}
+
+#weerbericht > .forecastMoment {
+	float: left;
+	width: 50%;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	text-align: center;
+	background-color: #D7DBDF;
+	color: #444;
+	font-size: 0.8em;
+}
+
+.temp {
+	font-weight: bold;
+	color: #0af;
+	font-size: 1.3em;
+}
+
+.hidden {
+	display: none;
+}
 
 
 @media only screen and (max-width: 899px) and (min-width: 550px) {

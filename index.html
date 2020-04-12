@@ -5,14 +5,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Space X dashboard</title>
         <link type="text/css" rel="stylesheet" href="css/style.css" />
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR2u11BvM5pUECq41xZhFYkUWpvEa3Z7E&callback=initMap"></script>
         <script src="js/main.js" defer></script>
+        
     </head>
-    <body>
+    <body onload="getAPIdata();">
        <header>
-           
+           <nav>
+                <img class="logo" src="images/logo.png" alt="logo" />
+                <a href="#"><img class="pijl" src="images/icons/pijl.svg" alt="pijl" /></a>
+                <p>Elon Musk</p>
+                <img class="profilepicmenu" src="images/profilepics/elon.jpg" alt="profilepic" />
+            </nav>
        </header>
        <main>
-       
+          <h1>Plekken om te landen</h1>
+           <section class="container">
+               <section class="plaatsnaam">
+                   <div id="plaatsnaam">Den Haag</div>
+               </section>
+
+               <section class="maps">
+                   <div id="maps"></div>
+                   <section class="contbtn">
+                       <a id="btn-zoek" class="btn-zoek" onclick="getClicks();initMap();getAPIdata();onAPISucces()">Verander locatie</a>
+                       <a class="btn-route">Calculeer route</a>
+                   </section>
+               </section>
+
+               <section class="preview">
+                    <div id="preview"></div>
+               </section>
+
+               <section class="weerbericht">
+                   <div id="weerbericht"></div>
+               </section>
+               
+               
+           </section>
        </main>
+    
     </body>
 </html>
